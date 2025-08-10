@@ -1,0 +1,5 @@
+export CONDA_CHANGEPS1=true
+# Activate the conda env when entering this folder
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate devops-pipeline
+export PS1="(devops-pipeline) $PS1"

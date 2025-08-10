@@ -1,0 +1,24 @@
+name: devops-pipeline
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  # notebooks
+  - jupyterlab
+  - ipykernel
+  # core libs (adjust as needed)
+  - numpy
+  - pandas
+  - matplotlib
+  # devops/testing/tooling
+  - pytest
+  - requests
+  - httpx
+  - pydantic
+  - black
+  - ruff
+  - mypy
+  - pre-commit
+  - pip:
+      - python-dotenv

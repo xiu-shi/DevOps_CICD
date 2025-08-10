@@ -1,0 +1,21 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Miniforge (conda-forge)
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          channels: conda-forge
+          channel-priority: true
+          auto-activate-base: false
+          activate-environment: devops-pipeline
+          environment-file: environment.yml
+      - name: Lint & Test
+        shell: bash -l {0}
+        run: |
+          ruff check .
+          black --check .
+          pytest
